@@ -11,32 +11,8 @@ builder.WebHost.UseStaticWebAssets();
 
 builder.Services.AddBlazorStaticService(opt =>
 {
-    //opt. //check to change the defaults
-
-    // opt.ShouldGenerateSitemap = true; //add this if you want sitemap.xml to be genedated
-    //opt.SiteUrl = "https://BlazorStatic.net; //add your url
-
-    // opt.IgnoredPathsOnContentCopy.Add("file-in-wwwroot-that-i-dont-want"); //e.g. pre-build css
-    // opt.PagesToGenerate.Add(new PageToGenerate("the/url/to/request", "file/to/generate")); // add pages that BlazorStatic cannot discover (usually the pages without md file)
-}
-)
-.AddBlazorStaticContentService<BlogFrontMatter>(opt =>
-{
-    // modify blog post before they are genedated to html
-    // opt.AfterContentParsedAndAddedAction = (service, contentService) => {
-    //     contentService.Posts.ForEach(post => {
-    //         post.Url = $"{post.Url}-nice"; // add nice to every url
-    //         post.FrontMatter.Published = DateTime.Now; //change post metadata
-    //     });
-    // };
-
-    // opt.PageUrl = "my-blog"; // if you need to change the resulting url. Defaut is "blog"
-    // opt.ContentPath = "MyContent/Posts"; // where resides your blog posts?
-
-
-}) //
-// .AddBlazorStaticContentService<MyFrontMatter>() // any other "content section" on your page with a differet FrontMatter? For example /projects
-;
+    opt.PagesToGenerate.Add(new PageToGenerate("/about", "about/index.html"));
+});
 
 builder.Services.AddRazorComponents();
 
