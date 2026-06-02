@@ -2,28 +2,26 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <base href="/"/>
-    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-
-                    colors: {
-                        primary: tailwind.colors.violet
-                    },
-                },},
-                }
-    </script>
-
-
-    <HeadOutlet/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#0a0a0c" />
+    <base href="/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <ResourcePreloader />
+@*     <link rel="stylesheet" href="@Assets["css/tailwind.css"]" />
+ *@    
+ <link rel="stylesheet" href="css/tailwind.css" />
+    <ImportMap />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <HeadOutlet />
 </head>
 
-<body class="bg-gray-950 font-sans text-gray-200">
-<Routes/>
+<body>
+    <Routes />
+@*     <script src="@Assets["_framework/blazor.web.js"]"></script>
+ *@
 </body>
 
 </html>

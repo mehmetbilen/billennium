@@ -33,6 +33,15 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
+    },
+    "SSG": {
+      "commandName": "Project",
+      "commandLineArgs": "ssg",
+      "launchBrowser": false,
+      "applicationUrl": "http://localhost:5130",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Production"
+      }
     }
   }
 }

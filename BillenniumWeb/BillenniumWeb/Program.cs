@@ -1,47 +1,48 @@
+using AspNetStatic;
 using BillenniumWeb.Components;
-using BlazorStatic;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.WebHost.UseStaticWebAssets();
-
-builder.Services.AddBlazorStaticService(opt =>
-{
-    opt.PagesToGenerate.Add(new PageToGenerate("/about", "about/index.html"));
-});
-
+// Add services to the container.
 builder.Services.AddRazorComponents();
+
+var staticResources = new List<ResourceInfoBase>
+{
+    // Keep your Razor pages mapped manually
+    new PageResource("/"),
+    new PageResource("/about"),
+    new PageResource("/contact")
+};
+
+var webRootPath = builder.Environment.WebRootPath;
+var allFiles = Directory.GetFiles(webRootPath, "*.*", SearchOption.AllDirectories);
+foreach (var filePath in allFiles)
+{
+    // Convert physical path (C:\...\wwwroot\css\app.css) to web route (/css/app.css)
+    var relativePath = filePath.Replace(webRootPath, "").Replace("\\", "/");
+    staticResources.Add(new BinResource(relativePath));
+}
+
+builder.Services.AddSingleton<IStaticResourcesInfoProvider>(
+    new StaticResourcesInfoProvider(staticResources)
+);
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
-{
-    app.UseExceptionHandler("/Error", createScopeForErrors: true);
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
-}
-
-app.UseHttpsRedirection();
-
 app.UseStaticFiles();
 app.UseAntiforgery();
-
+app.MapStaticAssets();
 app.MapRazorComponents<App>();
 
-app.UseBlazorStaticGenerator(shutdownApp: !app.Environment.IsDevelopment());
+// Generate static files when the app is launched with the "ssg" argument.
+//   dotnet run -- ssg
+// Output folder: <project>/output
+if (args.HasSsgArg())
+{
+    app.GenerateStaticContent(
+        Path.Combine(app.Environment.ContentRootPath, "output"),
+        exitWhenDone: true,
+        alwaysDefaultFile: true);
+}
 
 app.Run();
-
-public static class WebsiteKeys
-{
-    public const string GitHubRepo = "https://github.com/BlazorStatic/BillenniumWeb";
-    public const string X = "https://x.com/";
-    public const string Title = "BlazorStatic Minimal Blog";
-    public const string BlogPostStorageAddress = $"{GitHubRepo}/tree/main/Content/Blog";
-    public const string BlogLead = "Sample blog created with BlazorStatic and TailwindCSS";
-}
