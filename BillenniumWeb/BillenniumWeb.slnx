@@ -1,0 +1,6 @@
+<Solution>
+  <Folder Name="/solItem/">
+    <File Path="prompt.txt" />
+  </Folder>
+  <Project Path="BillenniumWeb/BillenniumWeb.csproj" />
+</Solution>
