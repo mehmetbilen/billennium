@@ -2,11 +2,41 @@
 
 <PageTitle>Home</PageTitle>
 
-<div class="divide-y divide-gray-700">
-    <div class="space-y-2 pb-8 pt-6 md:space-y-5">
-        <h1>Home</h1>
-        <p class="text-lg leading-7 text-gray-400 prose prose-invert">
-            Welcome to Billennium. We're glad you stopped by.
+
+
+    <main class="hero-section">
+        <div class="vertical-laser"></div>
+
+        <div class="terminal-status">
+            <span id="typewriter"></span><span class="cursor"></span>
+        </div>
+
+        <h1 class="main-heading">Architecting the <br><strong>Digital Future.</strong></h1>
+
+        <p class="sub-heading">
+            BILLENNIUM LIMITED engineers highly scalable microservices, cloud-native infrastructures on Azure, and bespoke software solutions for the modern enterprise.
         </p>
-    </div>
-</div>
+
+        <div class="cta-container">
+            <button class="btn-primary">[ INITIALIZE_CONTACT ]</button>
+            <a href="#capabilities" class="btn-secondary">View Capabilities <span>-></span></a>
+        </div>
+    </main>
+
+    <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const textToType = "> STATUS: ONLINE // SYSTEM_READY";
+                const speed = 50; // typing speed in milliseconds
+                let i = 0;
+
+                // Wait a brief moment before starting the typing effect to match CSS animations
+                setTimeout(function typeWriter() {
+                    if (i < textToType.length) {
+                        document.getElementById("typewriter").innerHTML += textToType.charAt(i);
+                        i++;
+                        setTimeout(typeWriter, speed);
+                    }
+                }, 600);
+            });
+    </script>
+

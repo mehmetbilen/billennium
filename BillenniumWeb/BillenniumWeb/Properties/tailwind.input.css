@@ -1,2 +1,211 @@
 @import "tailwindcss";
 @source "../";
+
+@layer base {
+
+    /* Core Variables */
+    :root {
+        --bg-base: #0A0A0A;
+        --text-main: #E0E0E0;
+        --text-muted: #888888;
+        --cyan-glow: #00F3FF;
+        --violet-glow: #BD00FF;
+        --font-sans: 'Inter', sans-serif;
+        --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    /* Global Reset & Body Styles */
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background-color: var(--bg-base);
+        color: var(--text-main);
+        font-family: var(--font-sans);
+        overflow-x: hidden;
+        /* Subtle High-Tech Background Grid */
+        background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        background-size: 40px 40px;
+        background-position: center center;
+    }
+
+    /* Hero Layout */
+    .hero-section {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 0 10%;
+        position: relative;
+    }
+
+    /* Decorative Animated Line */
+    .vertical-laser {
+        position: absolute;
+        left: 5%;
+        top: 0;
+        width: 1px;
+        height: 0;
+        background: linear-gradient(to bottom, transparent, var(--violet-glow), transparent);
+        animation: drawLine 2.5s ease-out forwards;
+        box-shadow: 0 0 15px var(--violet-glow);
+    }
+
+    @keyframes drawLine {
+        0% {
+            height: 0;
+            top: -20%;
+        }
+
+        100% {
+            height: 100vh;
+            top: 0;
+        }
+    }
+
+    /* Typography */
+    .terminal-status {
+        font-family: var(--font-mono);
+        color: var(--cyan-glow);
+        font-size: 0.9rem;
+        letter-spacing: 2px;
+        margin-bottom: 1.5rem;
+        opacity: 0;
+        animation: fadeIn 1s ease-in 0.5s forwards;
+    }
+
+    .main-heading {
+        font-size: 4.5rem;
+        font-weight: 300;
+        line-height: 1.1;
+        margin-bottom: 1.5rem;
+        letter-spacing: -1px;
+        opacity: 0;
+        animation: fadeIn 1s ease-in 1s forwards;
+    }
+
+        .main-heading strong {
+            font-weight: 600;
+            background: linear-gradient(90deg, #ffffff, var(--text-muted));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+    .sub-heading {
+        font-size: 1.25rem;
+        color: var(--text-muted);
+        max-width: 650px;
+        line-height: 1.6;
+        margin-bottom: 3rem;
+        opacity: 0;
+        animation: fadeIn 1s ease-in 1.5s forwards;
+    }
+
+    /* Buttons & Interactions */
+    .cta-container {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+        opacity: 0;
+        animation: fadeIn 1s ease-in 2s forwards;
+    }
+
+    .btn-primary {
+        background: rgba(0, 243, 255, 0.05);
+        color: var(--cyan-glow);
+        font-family: var(--font-mono);
+        font-size: 1rem;
+        padding: 1rem 2rem;
+        border: 1px solid var(--cyan-glow);
+        border-radius: 2px;
+        cursor: pointer;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+        .btn-primary:hover {
+            background: var(--cyan-glow);
+            color: var(--bg-base);
+            box-shadow: 0 0 20px rgba(0, 243, 255, 0.4);
+        }
+
+    .btn-secondary {
+        color: var(--text-main);
+        text-decoration: none;
+        font-size: 1.1rem;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: color 0.3s ease;
+    }
+
+        .btn-secondary:hover {
+            color: var(--violet-glow);
+        }
+
+        .btn-secondary span {
+            font-family: var(--font-mono);
+            transition: transform 0.3s ease;
+        }
+
+        .btn-secondary:hover span {
+            transform: translateX(5px);
+        }
+
+    /* Simple Fade In Keyframe */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Blinking Cursor for Typewriter effect */
+    .cursor {
+        display: inline-block;
+        width: 8px;
+        height: 1.2rem;
+        background-color: var(--cyan-glow);
+        vertical-align: middle;
+        animation: blink 1s step-end infinite;
+    }
+
+    @keyframes blink {
+        0%, 100% {
+            opacity: 1;
+        }
+
+        50% {
+            opacity: 0;
+        }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .main-heading {
+            font-size: 3rem;
+        }
+
+        .cta-container {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1.5rem;
+        }
+
+        .hero-section {
+            padding: 0 5%;
+        }
+    }
+}
