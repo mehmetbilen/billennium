@@ -1,6 +1,7 @@
 <Solution>
   <Folder Name="/solItem/">
     <File Path="capabilities.txt" />
+    <File Path="domain.txt" />
     <File Path="home.txt" />
     <File Path="prompt.txt" />
   </Folder>

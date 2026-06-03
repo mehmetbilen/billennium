@@ -1,0 +1,8 @@
+cname setting when hosing on godaddy
+cname	www	billenniumtechnology.com.
+
+
+Azure free static web app
+
+cname host: https://billenniumtechnology
+value: ashy-river-0a2fd3803.7.azurestaticapps.net
