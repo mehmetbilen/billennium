@@ -1,4 +1,99 @@
-/*nav + home */
+/*nav*/
+
+/* Shared CSS (Global Style File Update) */
+
+/* Updated Header Logo Handling */
+.nav-logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+}
+
+/* Rendering your logo with futuristic gradient effect */
+.nav-logo-icon {
+    width: 35px;
+    height: 35px;
+    /* We treat the PNG as a mask for a gradient, simulating a recolor */
+    background-image: url('../billennium_logo.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* Apply a flowing gradient mask across the maze lines */
+    -webkit-mask-image: url('../billennium_logo.png');
+    mask-image: url('../billennium_logo.png');
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    background: linear-gradient(135deg, var(--cyan-glow), var(--violet-glow));
+    transition: all 0.3s ease;
+}
+
+.nav-logo-container:hover .nav-logo-icon {
+    box-shadow: 0 0 15px rgba(189, 0, 255, 0.4);
+    transform: scale(1.05);
+}
+
+.nav-links {
+    margin-left: auto; /* Push links to the right */
+}
+
+
+/* New System ID Section Styles (Add to home page if keeping single file or CSS if global) */
+.system-id-section {
+    background: #050505;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px dashed rgba(255, 255, 255, 0.1);
+    padding: 6rem 5%;
+    margin: 4rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.large-system-id {
+    width: 250px;
+    height: 250px;
+    margin-bottom: 3rem;
+    /* Large pulsing version of your logo */
+    background-image: url('../billennium_logo.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    -webkit-mask-image: url('../billennium_logo.png');
+    mask-image: url('../billennium_logo.png');
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    background: linear-gradient(135deg, var(--cyan-glow), var(--violet-glow));
+    animation: systemPulse 6s ease-in-out infinite;
+}
+
+.system-id-concept-text {
+    max-width: 700px;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+@keyframes systemPulse {
+    0%, 100% {
+        box-shadow: 0 0 10px rgba(0, 243, 255, 0.1);
+    }
+
+    50% {
+        box-shadow: 0 0 40px rgba(189, 0, 255, 0.3);
+    }
+}
+/*home */
 
 
 /* Core Variables */
