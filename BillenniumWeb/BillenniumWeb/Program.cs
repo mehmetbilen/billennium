@@ -12,6 +12,8 @@ var staticResources = new List<ResourceInfoBase>
     new PageResource("/"),
     new PageResource("/about-us"),
     new PageResource("/capabilities"),
+    new PageResource("/architect"),
+    new PageResource("/initialize"),
 };
 
 var webRootPath = builder.Environment.WebRootPath;
