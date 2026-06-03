@@ -1,77 +1,25 @@
 ﻿@* Public SSR navigation. Mobile menu uses <details> for zero-JS disclosure (works in non-interactive SSR). *@
 
-<nav class="hidden md:flex items-center gap-1 ml-2" aria-label="Primary">
-    <NavLink href=""
-             Match="NavLinkMatch.All"
-             ActiveClass="bg-vds-paper text-vds-ink"
-             class="px-3 py-2 rounded-md text-sm font-display tracking-tight
-        text-vds-ink/80 hover:text-vds-ink hover:bg-vds-paper
-        focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-vds-pulse
-        focus-visible:ring-offset-2 focus-visible:ring-offset-vds-paper">
-        Home
-    </NavLink>
-    <NavLink href="about-us"
-             ActiveClass="bg-vds-paper text-vds-ink"
-             class="px-3 py-3 rounded-md font-display tracking-tight
-        text-vds-ink/85 hover:text-vds-ink hover:bg-vds-paper
-        focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-vds-pulse
-        focus-visible:ring-offset-2 focus-visible:ring-offset-vds-paper">
-        about us
-    </NavLink>
-</nav>
-
-<details class="md:hidden order-last relative ml-auto group">
-    <summary class="list-none cursor-pointer inline-flex items-center gap-2
-        h-11 pl-3 pr-3 rounded-full
-        text-vds-ink bg-vds-paper hover:bg-vds-line/60
-        ring-1 ring-inset ring-vds-line
-        focus-visible:outline-none
-        focus-visible:ring-2 focus-visible:ring-vds-pulse
-        focus-visible:ring-offset-2 focus-visible:ring-offset-vds-cloud"
-             aria-label="Open navigation menu">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-             class="w-5 h-5 group-open:hidden" fill="none" stroke="currentColor" stroke-width="2"
-             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <line x1="4" y1="7" x2="20" y2="7" />
-            <line x1="4" y1="12" x2="20" y2="12" />
-            <line x1="4" y1="17" x2="20" y2="17" />
-        </svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-             class="w-5 h-5 hidden group-open:block" fill="none" stroke="currentColor" stroke-width="2"
-             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <line x1="18" y1="6" x2="6" y2="18" />
-            <line x1="6" y1="6" x2="18" y2="18" />
-        </svg>
-        <span class="font-display text-sm tracking-tight">Menu</span>
-    </summary>
-
-    <div class="absolute right-0 top-full mt-2 z-50
-        w-72 max-w-[calc(100vw-1rem)]
-        bg-white text-vds-ink
-        ring-1 ring-vds-line rounded-xl
-        shadow-[0_10px_40px_rgba(10,10,12,0.25)]
-        flex flex-col gap-1 p-3"
-         role="menu"
-         aria-label="Navigation">
-
+<nav>
+    <a href="index.html" class="logo">BILLENNIUM<span>_LTD</span></a>
+    <div class="nav-links">
         <NavLink href=""
                  Match="NavLinkMatch.All"
-                 ActiveClass="bg-vds-paper text-vds-ink"
-                 class="px-3 py-3 rounded-md font-display tracking-tight
-            text-vds-ink/85 hover:text-vds-ink hover:bg-vds-paper
-            focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-vds-pulse
-            focus-visible:ring-offset-2 focus-visible:ring-offset-vds-paper">
+                 ActiveClass="active">
             Home
         </NavLink>
-        <NavLink href="about-us"
-                 ActiveClass="bg-vds-paper text-vds-ink"
-                 class="px-3 py-3 rounded-md font-display tracking-tight
-            text-vds-ink/85 hover:text-vds-ink hover:bg-vds-paper
-            focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-vds-pulse
-            focus-visible:ring-offset-2 focus-visible:ring-offset-vds-paper">
-            about us
+        
+        <NavLink href="capabilities"
+                 ActiveClass="active">
+            Capabilities
         </NavLink>
-
-       
+        <NavLink href="architect"
+                 ActiveClass="active">
+            The Architect
+        </NavLink>
+        <NavLink href="initialize"
+                 ActiveClass="active">
+            Initialize
+        </NavLink>
     </div>
-</details>
+</nav>

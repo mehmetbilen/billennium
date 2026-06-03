@@ -1,5 +1,7 @@
 <Solution>
   <Folder Name="/solItem/">
+    <File Path="capabilities.txt" />
+    <File Path="home.txt" />
     <File Path="prompt.txt" />
   </Folder>
   <Project Path="BillenniumWeb/BillenniumWeb.csproj" />

@@ -1,0 +1,43 @@
+> EXECUTING: /capabilities
+Here is the finalized content for your Capabilities page. It is structured to look like high-level technical documentation, natively integrating your specific technological stack and architectural expertise to project immediate authority.
+
+// SYSTEM_CAPABILITIES
+Precision engineering for scalable, cloud-native enterprise environments.
+
+BILLENNIUM LIMITED does not rely on bloated frameworks or generalized solutions. We architect, deploy, and scale bespoke software ecosystems designed for absolute performance and zero-downtime resilience. Every layer of the stack is engineered with intent.
+
+[01] CLOUD ARCHITECTURE & AZURE MIGRATION
+Modern infrastructure demands more than just hosting; it requires intelligent, automated, and serverless ecosystems. We specialize in comprehensive Microsoft Azure environments, transforming legacy monoliths into agile, cloud-native platforms.
+
+Serverless Topologies: Deep expertise in deploying and managing Azure Functions, including migrating architectures to highly secure, isolated worker models.
+
+Infrastructure as Code: Designing reproducible, scalable cloud environments that reduce overhead and eliminate deployment friction.
+
+Performance Optimization: Strategic tuning of cloud resources to maximize throughput while maintaining strict cost-efficiency.
+
+[02] MICROSERVICES & SYSTEM ARCHITECTURE
+We decouple complex business logic into modular, independently deployable services. This ensures that your system remains robust, maintainable, and infinitely scalable as your operational demands grow.
+
+Distributed Systems: Architecting resilient microservices that communicate flawlessly under heavy data loads.
+
+Complex Integrations: Seamless implementation of third-party APIs and financial routing, including multi-tiered payment gateways (Stripe, Wise, and direct carrier billing).
+
+High-Availability Design: Building fault-tolerant systems where isolated component failures never compromise the global application state.
+
+[03] WEB & BACKEND ENGINEERING
+The backbone of any high-tech operation is its backend. We deliver lightning-fast, secure, and rigorously tested server-side logic paired with modern, responsive web interfaces.
+
+.NET & C# Mastery: Building enterprise-grade backend infrastructure utilizing ASP.NET Core APIs for maximum speed and security.
+
+Advanced Web Frameworks: Delivering rich, interactive frontend experiences powered by Blazor WebAssembly.
+
+Database Administration: Advanced SQL Server architecture, focusing on complex query optimization, indexing strategies, and structural integrity.
+
+[04] MOBILE APPLICATION DEVELOPMENT
+Extending complex systemic logic to the edge. We engineer mobile applications that are not just interfaces, but powerful native clients capable of high-performance execution.
+
+Cross-Platform Parity: Developing cohesive mobile experiences that maintain strict functional parity across operating systems.
+
+Secure Data Sync: Ensuring encrypted, low-latency communication between the mobile client and the microservice backend.
+
+> END_OF_FILE

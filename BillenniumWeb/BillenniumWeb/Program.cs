@@ -11,6 +11,7 @@ var staticResources = new List<ResourceInfoBase>
     // Keep your Razor pages mapped manually
     new PageResource("/"),
     new PageResource("/about-us"),
+    new PageResource("/capabilities"),
 };
 
 var webRootPath = builder.Environment.WebRootPath;

@@ -15,15 +15,15 @@
 
 	<ItemGroup>
 		<PackageReference Include="AspNetStatic" Version="0.27.8" />
-		<PackageReference Include="Tailwind.MSBuild" Version="2.0.3">
+		<!--<PackageReference Include="Tailwind.MSBuild" Version="2.0.3">
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 			<PrivateAssets>all</PrivateAssets>
-		</PackageReference>
+		</PackageReference>-->
 	</ItemGroup>
 
-	<ItemGroup>
+	<!--<ItemGroup>
 		<UpToDateCheckBuilt Include="Properties\tailwind.input.css" Set="Css" />
-	</ItemGroup>
+	</ItemGroup>-->
 
 
 

@@ -17,9 +17,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <ResourcePreloader />
-@*     <link rel="stylesheet" href="@Assets["css/tailwind.css"]" />
+    @*     <link rel="stylesheet" href="@Assets["css/tailwind.css"]" />
  *@    
- <link rel="stylesheet" href="css/tailwind.css" />
+    <link rel="stylesheet" href="css/site.css" />
+    <link rel="stylesheet" href="css/architect.css" />
+    <link rel="stylesheet" href="css/initialize.css" />
     <ImportMap />
     <link rel="icon" type="image/png" href="favicon.png" />
     <link rel="apple-touch-icon" href="apple-touch-icon.png" />
@@ -27,8 +29,22 @@
 </head>
 
 <body>
-    <Routes />
-@*     <script src="@Assets["_framework/blazor.web.js"]"></script>
+    <main class="container">
+        <Routes />
+
+        <!-- Footer -->
+        <footer class="fade-in delay-3">
+            <div>
+                BILLENNIUM LIMITED <br>
+                Operating from Dartford, UK | Established 2020
+            </div>
+            <div>Registered in England & Wales</div>
+        </footer>
+    </main>
+
+
+    @*
+        <script src="@Assets["_framework/blazor.web.js"]"></script>
  *@
 </body>
 

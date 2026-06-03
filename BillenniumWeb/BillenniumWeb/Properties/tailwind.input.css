@@ -6,6 +6,7 @@
     /* Core Variables */
     :root {
         --bg-base: #0A0A0A;
+        --bg-surface: #111111;
         --text-main: #E0E0E0;
         --text-muted: #888888;
         --cyan-glow: #00F3FF;
@@ -14,7 +15,7 @@
         --font-mono: 'JetBrains Mono', monospace;
     }
 
-    /* Global Reset & Body Styles */
+    /* Global Reset */
     * {
         box-sizing: border-box;
         margin: 0;
@@ -26,66 +27,110 @@
         color: var(--text-main);
         font-family: var(--font-sans);
         overflow-x: hidden;
-        /* Subtle High-Tech Background Grid */
-        background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
         background-size: 40px 40px;
-        background-position: center center;
+        background-attachment: fixed;
+        line-height: 1.6;
     }
 
-    /* Hero Layout */
-    .hero-section {
-        height: 100vh;
+    /* Navigation */
+    nav {
         display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-        padding: 0 10%;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2rem 5%;
+        font-family: var(--font-mono);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        background: rgba(10, 10, 10, 0.8);
+        backdrop-filter: blur(10px);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+
+    .logo {
+        color: var(--text-main);
+        text-decoration: none;
+        font-size: 1.2rem;
+        letter-spacing: 1px;
+    }
+
+        .logo span {
+            color: var(--cyan-glow);
+        }
+
+    .nav-links {
+        display: flex;
+        gap: 2rem;
+    }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+            .nav-links a:hover, .nav-links a.active {
+                color: var(--cyan-glow);
+            }
+
+    /* Container & Animations */
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 4rem 5%;
+    }
+
+    .fade-in {
+        opacity: 0;
+        animation: fadeIn 1s ease-in forwards;
+    }
+
+    .delay-1 {
+        animation-delay: 0.5s;
+    }
+
+    .delay-2 {
+        animation-delay: 1s;
+    }
+
+    .delay-3 {
+        animation-delay: 1.5s;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Hero Section */
+    .hero {
+        padding: 6rem 0;
         position: relative;
     }
 
-    /* Decorative Animated Line */
-    .vertical-laser {
-        position: absolute;
-        left: 5%;
-        top: 0;
-        width: 1px;
-        height: 0;
-        background: linear-gradient(to bottom, transparent, var(--violet-glow), transparent);
-        animation: drawLine 2.5s ease-out forwards;
-        box-shadow: 0 0 15px var(--violet-glow);
-    }
-
-    @keyframes drawLine {
-        0% {
-            height: 0;
-            top: -20%;
-        }
-
-        100% {
-            height: 100vh;
-            top: 0;
-        }
-    }
-
-    /* Typography */
     .terminal-status {
         font-family: var(--font-mono);
         color: var(--cyan-glow);
         font-size: 0.9rem;
         letter-spacing: 2px;
-        margin-bottom: 1.5rem;
-        opacity: 0;
-        animation: fadeIn 1s ease-in 0.5s forwards;
+        margin-bottom: 2rem;
     }
 
     .main-heading {
-        font-size: 4.5rem;
+        font-size: 4rem;
         font-weight: 300;
         line-height: 1.1;
         margin-bottom: 1.5rem;
         letter-spacing: -1px;
-        opacity: 0;
-        animation: fadeIn 1s ease-in 1s forwards;
     }
 
         .main-heading strong {
@@ -96,87 +141,140 @@
         }
 
     .sub-heading {
-        font-size: 1.25rem;
+        font-size: 1.2rem;
         color: var(--text-muted);
-        max-width: 650px;
-        line-height: 1.6;
+        max-width: 700px;
         margin-bottom: 3rem;
-        opacity: 0;
-        animation: fadeIn 1s ease-in 1.5s forwards;
     }
 
-    /* Buttons & Interactions */
-    .cta-container {
-        display: flex;
-        gap: 2rem;
-        align-items: center;
-        opacity: 0;
-        animation: fadeIn 1s ease-in 2s forwards;
-    }
-
-    .btn-primary {
-        background: rgba(0, 243, 255, 0.05);
-        color: var(--cyan-glow);
+    /* Buttons & Terminal Links */
+    .term-link {
+        display: inline-block;
         font-family: var(--font-mono);
+        color: var(--text-main);
+        text-decoration: none;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        padding: 0.8rem 1.5rem;
+        margin-right: 1rem;
+        margin-bottom: 1rem;
+        transition: all 0.3s ease;
+        background: rgba(255,255,255,0.02);
+    }
+
+        .term-link:hover {
+            border-color: var(--cyan-glow);
+            color: var(--cyan-glow);
+            box-shadow: 0 0 15px rgba(0, 243, 255, 0.2);
+        }
+
+        .term-link.primary {
+            border-color: var(--cyan-glow);
+            color: var(--cyan-glow);
+        }
+
+    /* Core Systems Grid */
+    .section-title {
+        font-family: var(--font-mono);
+        color: var(--text-muted);
+        margin-bottom: 2rem;
         font-size: 1rem;
-        padding: 1rem 2rem;
-        border: 1px solid var(--cyan-glow);
-        border-radius: 2px;
-        cursor: pointer;
-        text-transform: uppercase;
-        letter-spacing: 1px;
+        letter-spacing: 2px;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-bottom: 4rem;
+    }
+
+    .card {
+        background: var(--bg-surface);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        padding: 2.5rem 2rem;
         transition: all 0.3s ease;
         position: relative;
         overflow: hidden;
     }
 
-        .btn-primary:hover {
-            background: var(--cyan-glow);
-            color: var(--bg-base);
-            box-shadow: 0 0 20px rgba(0, 243, 255, 0.4);
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: transparent;
+            transition: background 0.3s ease;
         }
 
-    .btn-secondary {
-        color: var(--text-main);
+        .card:hover::before {
+            background: linear-gradient(90deg, var(--cyan-glow), var(--violet-glow));
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .card h3 {
+            font-family: var(--font-mono);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+        }
+
+    .card-link {
+        font-family: var(--font-mono);
+        color: var(--violet-glow);
         text-decoration: none;
-        font-size: 1.1rem;
+        font-size: 0.85rem;
         display: flex;
         align-items: center;
-        gap: 8px;
-        transition: color 0.3s ease;
+        gap: 5px;
     }
 
-        .btn-secondary:hover {
-            color: var(--violet-glow);
+        .card-link:hover {
+            text-decoration: underline;
         }
 
-        .btn-secondary span {
-            font-family: var(--font-mono);
-            transition: transform 0.3s ease;
-        }
-
-        .btn-secondary:hover span {
-            transform: translateX(5px);
-        }
-
-    /* Simple Fade In Keyframe */
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-            transform: translateY(10px);
-        }
-
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
+    /* Advantage Section */
+    .advantage {
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        padding-top: 4rem;
+        margin-bottom: 4rem;
     }
 
-    /* Blinking Cursor for Typewriter effect */
+        .advantage h2 {
+            font-size: 2rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+        }
+
+    /* Footer */
+    footer {
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        padding: 3rem 5%;
+        font-family: var(--font-mono);
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* Blinking Cursor */
     .cursor {
         display: inline-block;
         width: 8px;
-        height: 1.2rem;
+        height: 1rem;
         background-color: var(--cyan-glow);
         vertical-align: middle;
         animation: blink 1s step-end infinite;
@@ -192,20 +290,21 @@
         }
     }
 
-    /* Responsive Design */
+    /* Responsive */
     @media (max-width: 768px) {
+        .nav-links {
+            display: none;
+        }
+        /* Add a hamburger menu later for mobile */
         .main-heading {
-            font-size: 3rem;
+            font-size: 2.5rem;
         }
 
-        .cta-container {
+        footer {
             flex-direction: column;
-            align-items: flex-start;
-            gap: 1.5rem;
-        }
-
-        .hero-section {
-            padding: 0 5%;
+            gap: 1rem;
+            text-align: center;
         }
     }
+
 }
