@@ -1,15 +1,21 @@
 ﻿@* Public SSR navigation. Mobile menu uses <details> for zero-JS disclosure (works in non-interactive SSR). *@
 
-
+<!-- Navigation with Integrated Logo & CSS-Only Mobile Menu -->
 <nav>
     <div class="nav-logo-container">
-        <!-- Render your personal logo (PNG file referenced verbatim) -->
         <div class="nav-logo-icon"></div>
-        <!-- The text will type itself out, starting AFTER the logo fades in -->
+        <!-- Ensure you keep your specific typewriter ID here if you want that effect -->
         <NavLink href="" Match="NavLinkMatch.All" class="logo monospace">
-            <span id="typewriter-nav"></span><span class="cursor-nav"></span>
+            <span id="typewriter-nav"></span>
+            <span class="cursor-nav"></span>
         </NavLink>
     </div>
+
+    <!-- CSS-Only Mobile Menu Checkbox Hack -->
+    <input class="menu-btn" type="checkbox" id="menu-btn" />
+    <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+
+    <!-- Navigation Links (Changed to a ul/li structure for better mobile formatting) -->
     <div class="nav-links">
         <NavLink href=""
                  Match="NavLinkMatch.All"

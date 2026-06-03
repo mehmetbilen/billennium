@@ -1,102 +1,6 @@
-/*nav*/
-
-/* Shared CSS (Global Style File Update) */
-
-/* Updated Header Logo Handling */
-.nav-logo-container {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    opacity: 0;
-    animation: fadeIn 1s ease-in forwards;
-}
-
-/* Rendering your logo with futuristic gradient effect */
-.nav-logo-icon {
-    width: 35px;
-    height: 35px;
-    /* We treat the PNG as a mask for a gradient, simulating a recolor */
-    background-image: url('../billennium_logo.png');
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    /* Apply a flowing gradient mask across the maze lines */
-    -webkit-mask-image: url('../billennium_logo.png');
-    mask-image: url('../billennium_logo.png');
-    -webkit-mask-size: contain;
-    mask-size: contain;
-    -webkit-mask-position: center;
-    mask-position: center;
-    -webkit-mask-repeat: no-repeat;
-    mask-repeat: no-repeat;
-    background: linear-gradient(135deg, var(--cyan-glow), var(--violet-glow));
-    transition: all 0.3s ease;
-}
-
-.nav-logo-container:hover .nav-logo-icon {
-    box-shadow: 0 0 15px rgba(189, 0, 255, 0.4);
-    transform: scale(1.05);
-}
-
-.nav-links {
-    margin-left: auto; /* Push links to the right */
-}
-
-
-/* New System ID Section Styles (Add to home page if keeping single file or CSS if global) */
-.system-id-section {
-    background: #050505;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-top: 1px dashed rgba(255, 255, 255, 0.1);
-    padding: 6rem 5%;
-    margin: 4rem 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-.large-system-id {
-    width: 250px;
-    height: 250px;
-    margin-bottom: 3rem;
-    /* Large pulsing version of your logo */
-    background-image: url('../billennium_logo.png');
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    -webkit-mask-image: url('../billennium_logo.png');
-    mask-image: url('../billennium_logo.png');
-    -webkit-mask-size: contain;
-    mask-size: contain;
-    -webkit-mask-position: center;
-    mask-position: center;
-    -webkit-mask-repeat: no-repeat;
-    mask-repeat: no-repeat;
-    background: linear-gradient(135deg, var(--cyan-glow), var(--violet-glow));
-    animation: systemPulse 6s ease-in-out infinite;
-}
-
-.system-id-concept-text {
-    max-width: 700px;
-    color: var(--text-muted);
-    font-size: 1.1rem;
-    line-height: 1.8;
-}
-
-@keyframes systemPulse {
-    0%, 100% {
-        box-shadow: 0 0 10px rgba(0, 243, 255, 0.1);
-    }
-
-    50% {
-        box-shadow: 0 0 40px rgba(189, 0, 255, 0.3);
-    }
-}
-/*home */
-
-
-/* Core Variables */
+/* =========================================
+   1. CORE VARIABLES & RESET
+   ========================================= */
 :root {
     --bg-base: #0A0A0A;
     --bg-surface: #111111;
@@ -108,7 +12,6 @@
     --font-mono: 'JetBrains Mono', monospace;
 }
 
-/* Global Reset */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -126,55 +29,15 @@ body {
     line-height: 1.6;
 }
 
-/* Navigation */
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 2rem 5%;
-    font-family: var(--font-mono);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    background: rgba(10, 10, 10, 0.8);
-    backdrop-filter: blur(10px);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-
-.logo {
-    color: var(--text-main);
-    text-decoration: none;
-    font-size: 1.2rem;
-    letter-spacing: 1px;
-}
-
-    .logo span {
-        color: var(--cyan-glow);
-    }
-
-.nav-links {
-    display: flex;
-    gap: 2rem;
-}
-
-    .nav-links a {
-        color: var(--text-muted);
-        text-decoration: none;
-        font-size: 0.9rem;
-        transition: color 0.3s ease;
-    }
-
-        .nav-links a:hover, .nav-links a.active {
-            color: var(--cyan-glow);
-        }
-
-/* Container & Animations */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 4rem 5%;
 }
 
+/* =========================================
+   2. GLOBAL ANIMATIONS
+   ========================================= */
 .fade-in {
     opacity: 0;
     animation: fadeIn 1s ease-in forwards;
@@ -192,6 +55,10 @@ nav {
     animation-delay: 1.5s;
 }
 
+.delay-4 {
+    animation-delay: 2s;
+}
+
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -204,7 +71,114 @@ nav {
     }
 }
 
-/* Hero Section */
+.cursor, .cursor-nav {
+    display: inline-block;
+    width: 8px;
+    background-color: var(--cyan-glow);
+    vertical-align: middle;
+    animation: blink 1s step-end infinite;
+}
+
+.cursor {
+    height: 1rem;
+}
+
+.cursor-nav {
+    height: 1.2rem;
+    margin-left: 2px;
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+/* =========================================
+   3. DESKTOP NAVIGATION & LOGO
+   ========================================= */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 5%;
+    font-family: var(--font-mono);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+}
+
+.nav-logo-icon {
+    width: 35px;
+    height: 35px;
+    background-image: url('../billennium_logo.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    -webkit-mask-image: url('../billennium_logo.png');
+    mask-image: url('../billennium_logo.png');
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    background: linear-gradient(135deg, var(--cyan-glow), var(--violet-glow));
+    transition: all 0.3s ease;
+}
+
+.nav-logo-container:hover .nav-logo-icon {
+    box-shadow: 0 0 15px rgba(189, 0, 255, 0.4);
+    transform: scale(1.05);
+}
+
+.logo {
+    color: var(--text-main);
+    text-decoration: none;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+
+    .logo span {
+        color: var(--cyan-glow);
+    }
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    margin-left: auto;
+}
+
+    .nav-links a {
+        color: var(--text-muted);
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: color 0.3s ease;
+    }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--cyan-glow);
+        }
+
+/* =========================================
+   4. TYPOGRAPHY & BUTTONS
+   ========================================= */
 .hero {
     padding: 6rem 0;
     position: relative;
@@ -240,7 +214,14 @@ nav {
     margin-bottom: 3rem;
 }
 
-/* Buttons & Terminal Links */
+.section-title {
+    font-family: var(--font-mono);
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+    font-size: 1rem;
+    letter-spacing: 2px;
+}
+
 .term-link {
     display: inline-block;
     font-family: var(--font-mono);
@@ -265,13 +246,56 @@ nav {
         color: var(--cyan-glow);
     }
 
-/* Core Systems Grid */
-.section-title {
-    font-family: var(--font-mono);
+/* =========================================
+   5. HOME PAGE ELEMENTS
+   ========================================= */
+.system-id-section {
+    background: #050505;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px dashed rgba(255, 255, 255, 0.1);
+    padding: 6rem 5%;
+    margin: 4rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.large-system-id {
+    width: 250px;
+    height: 250px;
+    margin-bottom: 3rem;
+    background-image: url('../billennium_logo.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    -webkit-mask-image: url('../billennium_logo.png');
+    mask-image: url('../billennium_logo.png');
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    background: linear-gradient(135deg, var(--cyan-glow), var(--violet-glow));
+    animation: systemPulse 6s ease-in-out infinite;
+}
+
+@keyframes systemPulse {
+    0%, 100% {
+        box-shadow: 0 0 10px rgba(0, 243, 255, 0.1);
+    }
+
+    50% {
+        box-shadow: 0 0 40px rgba(189, 0, 255, 0.3);
+    }
+}
+
+.system-id-concept-text {
+    max-width: 700px;
     color: var(--text-muted);
-    margin-bottom: 2rem;
-    font-size: 1rem;
-    letter-spacing: 2px;
+    font-size: 1.1rem;
+    line-height: 1.8;
 }
 
 .grid {
@@ -338,7 +362,6 @@ nav {
         text-decoration: underline;
     }
 
-/* Advantage Section */
 .advantage {
     border-top: 1px solid rgba(255, 255, 255, 0.05);
     padding-top: 4rem;
@@ -351,57 +374,9 @@ nav {
         margin-bottom: 1rem;
     }
 
-/* Footer */
-footer {
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    padding: 3rem 5%;
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
-    color: var(--text-muted);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-/* Blinking Cursor */
-.cursor {
-    display: inline-block;
-    width: 8px;
-    height: 1rem;
-    background-color: var(--cyan-glow);
-    vertical-align: middle;
-    animation: blink 1s step-end infinite;
-}
-
-@keyframes blink {
-    0%, 100% {
-        opacity: 1;
-    }
-
-    50% {
-        opacity: 0;
-    }
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .nav-links {
-        display: none;
-    }
-    /* Add a hamburger menu later for mobile */
-    .main-heading {
-        font-size: 2.5rem;
-    }
-
-    footer {
-        flex-direction: column;
-        gap: 1rem;
-        text-align: center;
-    }
-}
-
-
-/* Capabilities Page Specific Styles */
+/* =========================================
+   6. CAPABILITIES PAGE
+   ========================================= */
 .doc-header {
     font-family: var(--font-mono);
     color: var(--cyan-glow);
@@ -467,4 +442,312 @@ footer {
     text-align: center;
     margin-top: 4rem;
     letter-spacing: 2px;
+}
+
+/* =========================================
+   7. ARCHITECT PAGE
+   ========================================= */
+.architect-grid {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 4rem;
+    margin-bottom: 4rem;
+    align-items: start;
+}
+
+.bio-text p {
+    color: var(--text-main);
+    font-size: 1.05rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+}
+
+    .bio-text p.highlight {
+        color: var(--text-muted);
+        font-family: var(--font-mono);
+        border-left: 2px solid var(--violet-glow);
+        padding-left: 1.5rem;
+        margin: 2.5rem 0;
+    }
+
+.terminal-card {
+    background: #050505;
+    border: 1px solid var(--cyan-glow);
+    padding: 2rem;
+    position: relative;
+    box-shadow: 0 0 20px rgba(0, 243, 255, 0.05);
+}
+
+    .terminal-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: var(--cyan-glow);
+    }
+
+.card-header {
+    font-family: var(--font-mono);
+    color: var(--cyan-glow);
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
+    padding-bottom: 1rem;
+}
+
+.spec-list {
+    list-style: none;
+    padding: 0;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+}
+
+    .spec-list li {
+        margin-bottom: 1.2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+.spec-label {
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+}
+
+.spec-value {
+    color: var(--text-main);
+}
+
+/* =========================================
+   8. INITIALIZE (CONTACT) PAGE
+   ========================================= */
+.contact-terminal {
+    background: #050505;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-left: 3px solid var(--cyan-glow);
+    padding: 3rem;
+    max-width: 800px;
+    margin: 2rem 0 4rem 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.contact-row {
+    margin-bottom: 2rem;
+    font-family: var(--font-mono);
+}
+
+    .contact-row:last-child {
+        margin-bottom: 0;
+    }
+
+.contact-label {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    display: block;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+}
+
+.contact-data {
+    color: var(--text-main);
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.email-link {
+    color: var(--cyan-glow);
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 2px;
+    transition: all 0.3s ease;
+}
+
+    .email-link::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        transform: scaleX(0);
+        height: 1px;
+        bottom: 0;
+        left: 0;
+        background-color: var(--cyan-glow);
+        transform-origin: bottom right;
+        transition: transform 0.25s ease-out;
+    }
+
+    .email-link:hover::after {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+    }
+
+    .email-link:hover {
+        text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+    }
+
+/* =========================================
+   9. FOOTER
+   ========================================= */
+footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 3rem 5%;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* =========================================
+   10. RESPONSIVE & MOBILE MENU (CSS-ONLY)
+   ========================================= */
+.menu-btn {
+    display: none;
+}
+
+.menu-icon {
+    display: none;
+    cursor: pointer;
+    padding: 1.5rem;
+    user-select: none;
+}
+
+    .menu-icon .navicon {
+        background: var(--text-main);
+        display: block;
+        height: 2px;
+        position: relative;
+        width: 24px;
+        transition: background 0.2s ease-out;
+    }
+
+        .menu-icon .navicon:before,
+        .menu-icon .navicon:after {
+            background: var(--text-main);
+            content: '';
+            display: block;
+            height: 100%;
+            position: absolute;
+            transition: all 0.2s ease-out;
+            width: 100%;
+        }
+
+        .menu-icon .navicon:before {
+            top: -8px;
+        }
+
+        .menu-icon .navicon:after {
+            top: 8px;
+        }
+
+@media (max-width: 850px) {
+    nav {
+        flex-wrap: wrap;
+        padding: 1rem 5%;
+    }
+
+    .menu-icon {
+        display: block;
+        margin-left: auto;
+    }
+
+    .logo {
+        font-size: 1rem;
+    }
+
+    .nav-links {
+        width: 100%;
+        flex-direction: column;
+        gap: 0;
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height 0.4s ease-out;
+        background: rgba(10, 10, 10, 0.98);
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        margin-top: 1rem;
+    }
+
+        .nav-links li {
+            width: 100%;
+        }
+
+            .nav-links li a {
+                display: block;
+                padding: 1.5rem 5%;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+                font-size: 1rem;
+            }
+
+    .menu-btn:checked ~ .nav-links {
+        max-height: 400px;
+    }
+
+    .menu-btn:checked ~ .menu-icon .navicon {
+        background: transparent;
+    }
+
+        .menu-btn:checked ~ .menu-icon .navicon:before {
+            transform: rotate(-45deg);
+            top: 0;
+            background: var(--cyan-glow);
+        }
+
+        .menu-btn:checked ~ .menu-icon .navicon:after {
+            transform: rotate(45deg);
+            top: 0;
+            background: var(--violet-glow);
+        }
+
+    .main-heading {
+        font-size: 2.8rem;
+    }
+
+    .hero {
+        padding: 4rem 0;
+    }
+
+        .cta-container, .hero div {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+    .term-link {
+        width: 100%;
+        text-align: center;
+        margin-right: 0;
+    }
+
+    .large-system-id {
+        width: 180px;
+        height: 180px;
+    }
+
+    .system-id-section {
+        padding: 4rem 5%;
+    }
+
+    .doc-section {
+        padding: 2rem 1.5rem;
+    }
+
+    .architect-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .contact-terminal {
+        padding: 2rem 1.5rem;
+    }
+
+    footer {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
 }
