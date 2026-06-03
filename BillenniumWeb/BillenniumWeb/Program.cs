@@ -10,7 +10,6 @@ var staticResources = new List<ResourceInfoBase>
 {
     // Keep your Razor pages mapped manually
     new PageResource("/"),
-    new PageResource("/about-us"),
     new PageResource("/capabilities"),
     new PageResource("/architect"),
     new PageResource("/initialize"),

@@ -1,0 +1,753 @@
+/* =========================================
+   1. CORE VARIABLES & RESET
+   ========================================= */
+:root {
+    --bg-base: #0A0A0A;
+    --bg-surface: #111111;
+    --text-main: #E0E0E0;
+    --text-muted: #888888;
+    --cyan-glow: #00F3FF;
+    --violet-glow: #BD00FF;
+    --font-sans: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-base);
+    color: var(--text-main);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 40px 40px;
+    background-attachment: fixed;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 5%;
+}
+
+/* =========================================
+   2. GLOBAL ANIMATIONS
+   ========================================= */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+}
+
+.delay-1 {
+    animation-delay: 0.5s;
+}
+
+.delay-2 {
+    animation-delay: 1s;
+}
+
+.delay-3 {
+    animation-delay: 1.5s;
+}
+
+.delay-4 {
+    animation-delay: 2s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.cursor, .cursor-nav {
+    display: inline-block;
+    width: 8px;
+    background-color: var(--cyan-glow);
+    vertical-align: middle;
+    animation: blink 1s step-end infinite;
+}
+
+.cursor {
+    height: 1rem;
+}
+
+.cursor-nav {
+    height: 1.2rem;
+    margin-left: 2px;
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+/* =========================================
+   3. DESKTOP NAVIGATION & LOGO
+   ========================================= */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 5%;
+    font-family: var(--font-mono);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+}
+
+.nav-logo-icon {
+    width: 35px;
+    height: 35px;
+    background-image: url('../billennium_logo.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    -webkit-mask-image: url('../billennium_logo.png');
+    mask-image: url('../billennium_logo.png');
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    background: linear-gradient(135deg, var(--cyan-glow), var(--violet-glow));
+    transition: all 0.3s ease;
+}
+
+.nav-logo-container:hover .nav-logo-icon {
+    box-shadow: 0 0 15px rgba(189, 0, 255, 0.4);
+    transform: scale(1.05);
+}
+
+.logo {
+    color: var(--text-main);
+    text-decoration: none;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+
+    .logo span {
+        color: var(--cyan-glow);
+    }
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    margin-left: auto;
+}
+
+    .nav-links a {
+        color: var(--text-muted);
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: color 0.3s ease;
+    }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--cyan-glow);
+        }
+
+/* =========================================
+   4. TYPOGRAPHY & BUTTONS
+   ========================================= */
+.hero {
+    padding: 6rem 0;
+    position: relative;
+}
+
+.terminal-status {
+    font-family: var(--font-mono);
+    color: var(--cyan-glow);
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    margin-bottom: 2rem;
+}
+
+.main-heading {
+    font-size: 4rem;
+    font-weight: 300;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    letter-spacing: -1px;
+}
+
+    .main-heading strong {
+        font-weight: 600;
+        background: linear-gradient(90deg, #ffffff, var(--text-muted));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+.sub-heading {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    max-width: 700px;
+    margin-bottom: 3rem;
+}
+
+.section-title {
+    font-family: var(--font-mono);
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+    font-size: 1rem;
+    letter-spacing: 2px;
+}
+
+.term-link {
+    display: inline-block;
+    font-family: var(--font-mono);
+    color: var(--text-main);
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 0.8rem 1.5rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+    background: rgba(255,255,255,0.02);
+}
+
+    .term-link:hover {
+        border-color: var(--cyan-glow);
+        color: var(--cyan-glow);
+        box-shadow: 0 0 15px rgba(0, 243, 255, 0.2);
+    }
+
+    .term-link.primary {
+        border-color: var(--cyan-glow);
+        color: var(--cyan-glow);
+    }
+
+/* =========================================
+   5. HOME PAGE ELEMENTS
+   ========================================= */
+.system-id-section {
+    background: #050505;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px dashed rgba(255, 255, 255, 0.1);
+    padding: 6rem 5%;
+    margin: 4rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.large-system-id {
+    width: 250px;
+    height: 250px;
+    margin-bottom: 3rem;
+    background-image: url('../billennium_logo.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    -webkit-mask-image: url('../billennium_logo.png');
+    mask-image: url('../billennium_logo.png');
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    background: linear-gradient(135deg, var(--cyan-glow), var(--violet-glow));
+    animation: systemPulse 6s ease-in-out infinite;
+}
+
+@keyframes systemPulse {
+    0%, 100% {
+        box-shadow: 0 0 10px rgba(0, 243, 255, 0.1);
+    }
+
+    50% {
+        box-shadow: 0 0 40px rgba(189, 0, 255, 0.3);
+    }
+}
+
+.system-id-concept-text {
+    max-width: 700px;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.card {
+    background: var(--bg-surface);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 2.5rem 2rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+    .card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: transparent;
+        transition: background 0.3s ease;
+    }
+
+    .card:hover::before {
+        background: linear-gradient(90deg, var(--cyan-glow), var(--violet-glow));
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+        border-color: rgba(255, 255, 255, 0.1);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .card h3 {
+        font-family: var(--font-mono);
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+        color: #fff;
+    }
+
+    .card p {
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        margin-bottom: 2rem;
+    }
+
+.card-link {
+    font-family: var(--font-mono);
+    color: var(--violet-glow);
+    text-decoration: none;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+    .card-link:hover {
+        text-decoration: underline;
+    }
+
+.advantage {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 4rem;
+    margin-bottom: 4rem;
+}
+
+    .advantage h2 {
+        font-size: 2rem;
+        font-weight: 300;
+        margin-bottom: 1rem;
+    }
+
+/* =========================================
+   6. CAPABILITIES PAGE
+   ========================================= */
+.doc-header {
+    font-family: var(--font-mono);
+    color: var(--cyan-glow);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.doc-section {
+    background: var(--bg-surface);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-left: 2px solid var(--text-muted);
+    padding: 3rem;
+    margin-bottom: 3rem;
+    transition: all 0.3s ease;
+}
+
+    .doc-section:hover {
+        border-left-color: var(--cyan-glow);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .doc-section p {
+        color: var(--text-main);
+        font-size: 1.05rem;
+        margin-bottom: 2rem;
+        max-width: 800px;
+    }
+
+.doc-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+    .doc-list li {
+        position: relative;
+        padding-left: 1.5rem;
+        margin-bottom: 1rem;
+        color: var(--text-muted);
+    }
+
+        .doc-list li::before {
+            content: '>';
+            position: absolute;
+            left: 0;
+            color: var(--violet-glow);
+            font-family: var(--font-mono);
+            font-weight: bold;
+        }
+
+    .doc-list strong {
+        color: var(--text-main);
+        font-family: var(--font-mono);
+        font-size: 0.95rem;
+    }
+
+.end-of-file {
+    font-family: var(--font-mono);
+    color: var(--text-muted);
+    text-align: center;
+    margin-top: 4rem;
+    letter-spacing: 2px;
+}
+
+/* =========================================
+   7. ARCHITECT PAGE
+   ========================================= */
+.architect-grid {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 4rem;
+    margin-bottom: 4rem;
+    align-items: start;
+}
+
+.bio-text p {
+    color: var(--text-main);
+    font-size: 1.05rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+}
+
+    .bio-text p.highlight {
+        color: var(--text-muted);
+        font-family: var(--font-mono);
+        border-left: 2px solid var(--violet-glow);
+        padding-left: 1.5rem;
+        margin: 2.5rem 0;
+    }
+
+.terminal-card {
+    background: #050505;
+    border: 1px solid var(--cyan-glow);
+    padding: 2rem;
+    position: relative;
+    box-shadow: 0 0 20px rgba(0, 243, 255, 0.05);
+}
+
+    .terminal-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: var(--cyan-glow);
+    }
+
+.card-header {
+    font-family: var(--font-mono);
+    color: var(--cyan-glow);
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
+    padding-bottom: 1rem;
+}
+
+.spec-list {
+    list-style: none;
+    padding: 0;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+}
+
+    .spec-list li {
+        margin-bottom: 1.2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+.spec-label {
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+}
+
+.spec-value {
+    color: var(--text-main);
+}
+
+/* =========================================
+   8. INITIALIZE (CONTACT) PAGE
+   ========================================= */
+.contact-terminal {
+    background: #050505;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-left: 3px solid var(--cyan-glow);
+    padding: 3rem;
+    max-width: 800px;
+    margin: 2rem 0 4rem 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.contact-row {
+    margin-bottom: 2rem;
+    font-family: var(--font-mono);
+}
+
+    .contact-row:last-child {
+        margin-bottom: 0;
+    }
+
+.contact-label {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    display: block;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+}
+
+.contact-data {
+    color: var(--text-main);
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.email-link {
+    color: var(--cyan-glow);
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 2px;
+    transition: all 0.3s ease;
+}
+
+    .email-link::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        transform: scaleX(0);
+        height: 1px;
+        bottom: 0;
+        left: 0;
+        background-color: var(--cyan-glow);
+        transform-origin: bottom right;
+        transition: transform 0.25s ease-out;
+    }
+
+    .email-link:hover::after {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+    }
+
+    .email-link:hover {
+        text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+    }
+
+/* =========================================
+   9. FOOTER
+   ========================================= */
+footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 3rem 5%;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* =========================================
+   10. RESPONSIVE & MOBILE MENU (CSS-ONLY)
+   ========================================= */
+.menu-btn {
+    display: none;
+}
+
+.menu-icon {
+    display: none;
+    cursor: pointer;
+    padding: 1.5rem;
+    user-select: none;
+}
+
+    .menu-icon .navicon {
+        background: var(--text-main);
+        display: block;
+        height: 2px;
+        position: relative;
+        width: 24px;
+        transition: background 0.2s ease-out;
+    }
+
+        .menu-icon .navicon:before,
+        .menu-icon .navicon:after {
+            background: var(--text-main);
+            content: '';
+            display: block;
+            height: 100%;
+            position: absolute;
+            transition: all 0.2s ease-out;
+            width: 100%;
+        }
+
+        .menu-icon .navicon:before {
+            top: -8px;
+        }
+
+        .menu-icon .navicon:after {
+            top: 8px;
+        }
+
+@media (max-width: 850px) {
+    nav {
+        flex-wrap: wrap;
+        padding: 1rem 5%;
+    }
+
+    .menu-icon {
+        display: block;
+        margin-left: auto;
+    }
+
+    .logo {
+        font-size: 1rem;
+    }
+
+    .nav-links {
+        width: 100%;
+        flex-direction: column;
+        gap: 0;
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height 0.4s ease-out;
+        background: rgba(10, 10, 10, 0.98);
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        margin-top: 1rem;
+    }
+
+        .nav-links li {
+            width: 100%;
+        }
+
+            .nav-links li a {
+                display: block;
+                padding: 1.5rem 5%;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+                font-size: 1rem;
+            }
+
+    .menu-btn:checked ~ .nav-links {
+        max-height: 400px;
+    }
+
+    .menu-btn:checked ~ .menu-icon .navicon {
+        background: transparent;
+    }
+
+        .menu-btn:checked ~ .menu-icon .navicon:before {
+            transform: rotate(-45deg);
+            top: 0;
+            background: var(--cyan-glow);
+        }
+
+        .menu-btn:checked ~ .menu-icon .navicon:after {
+            transform: rotate(45deg);
+            top: 0;
+            background: var(--violet-glow);
+        }
+
+    .main-heading {
+        font-size: 2.8rem;
+    }
+
+    .hero {
+        padding: 4rem 0;
+    }
+
+        .cta-container, .hero div {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+    .term-link {
+        width: 100%;
+        text-align: center;
+        margin-right: 0;
+    }
+
+    .large-system-id {
+        width: 180px;
+        height: 180px;
+    }
+
+    .system-id-section {
+        padding: 4rem 5%;
+    }
+
+    .doc-section {
+        padding: 2rem 1.5rem;
+    }
+
+    .architect-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .contact-terminal {
+        padding: 2rem 1.5rem;
+    }
+
+    footer {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+}
