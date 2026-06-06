@@ -7,36 +7,27 @@
     <meta name="theme-color" content="#0a0a0c" />
     <base href="/" />
 
-    <title>Billennium Limited | Software Architecture</title>
+    <title>Billennium Limited UK</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-
-    
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <ResourcePreloader />
-    @*     <link rel="stylesheet" href="@Assets["css/tailwind.css"]" />
- *@    
-    <link rel="stylesheet" href="css/site.css?v=2" />
- <ImportMap />
- <link rel="icon" href="favicon.ico" sizes="any" />
- <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
- <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
- <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
- <HeadOutlet />
+    <link rel="stylesheet" href="css/site.css?v=@DateTime.Now.ToString("yyyyMMddHH")" />
+    <ImportMap />
+    <link rel="icon" href="favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <HeadOutlet />
 </head>
 
 <body>
 
     <Routes />
 
-
-
-    @*
-        <script src="@Assets["_framework/blazor.web.js"]"></script>
- *@
 </body>
 
 </html>
