@@ -1,20 +1,33 @@
 ﻿@inherits LayoutComponentBase
 
-<div class="mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0 ">
-    <div class="flex h-screen flex-col justify-between">
 
-        <NavMenu/>
+<main class="container">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-5xl xl:px-0 ">
+        <div class="flex h-screen flex-col justify-between">
 
-        <main class="mb-auto">
-            @Body
-        </main>
+            <NavMenu />
 
-        <footer>
-            <div class="mt-16 flex flex-col items-center">
-                <div class="mb-2 flex space-x-2 text-sm text-gray-400">
-                    <div>© @DateTime.Now.Year Billennium</div>
+            <main class="mb-auto">
+                @Body
+            </main>
+
+            <footer>
+                <div class="mt-16 flex flex-col items-center">
+                    <div class="mb-2 flex space-x-2 text-sm text-gray-400">
+                        <div>© @DateTime.Now.Year Billennium</div>
+                    </div>
                 </div>
-            </div>
-        </footer>
+            </footer>
+        </div>
     </div>
-</div>
+    <!-- Footer -->
+    <footer class="fade-in delay-3">
+        <div>
+            BILLENNIUM LIMITED <br>
+            Operating from London, UK | Established 2020
+        </div>
+        @*<div>Registered in England & Wales</div> *@
+    </footer>
+</main>
+
+
