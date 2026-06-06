@@ -124,8 +124,8 @@ nav {
 }
 
 .nav-logo-icon {
-    width: 35px;
-    height: 35px;
+    width: 48px; /* Increased from 35px */
+    height: 48px; /* Increased from 35px */
     background-image: url('../billennium_logo.png');
     background-size: contain;
     background-position: center;
