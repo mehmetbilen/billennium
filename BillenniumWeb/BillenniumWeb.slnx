@@ -1,9 +1,9 @@
 <Solution>
   <Folder Name="/solItem/">
-    <File Path="capabilities.txt" />
-    <File Path="domain.txt" />
-    <File Path="home.txt" />
-    <File Path="prompt.txt" />
+    <File Path="notes.txt" />
+  </Folder>
+  <Folder Name="/solItem/github/">
+    <File Path="../.github/workflows/azure-static-web-apps-wonderful-desert-0f926c903.yml" />
   </Folder>
   <Project Path="BillenniumWeb/BillenniumWeb.csproj" />
 </Solution>

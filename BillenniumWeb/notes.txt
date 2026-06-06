@@ -1,3 +1,6 @@
+
+DOMAIN
+registered on godaddy
 cname setting when hosing on godaddy
 cname	www	billenniumtechnology.com.
 
