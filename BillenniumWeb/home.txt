@@ -11,7 +11,7 @@ BILLENNIUM LIMITED engineers highly scalable microservices, cloud-native Azure i
 Select a node to inspect system capabilities.
 
 [01] CLOUD INFRASTRUCTURE
-Transforming legacy monoliths into agile, secure, and highly optimized environments. Specializing in advanced Azure topologies, from serverless execution to isolated worker models.
+Transforming legacy monoliths into agile, secure, and highly optimized environments. Specializing in advanced Azure topologies, leveraging Azure Functions for serverless execution and Azure Data Factory for robust data orchestration.
 > Inspect /capabilities
 
 [02] MICROSERVICES & ARCHITECTURE
@@ -19,15 +19,15 @@ Decoupling complex business logic into independently scalable services. Built fo
 > Inspect /capabilities
 
 [03] FULL-STACK & EDGE DEPLOYMENT
-Delivering lightning-fast ASP.NET Core backend APIs paired with modern Blazor WebAssembly interfaces and high-performance cross-platform mobile clients.
+Delivering lightning-fast ASP.NET Core & Azure Functions backend APIs paired with modern React and Blazor WebAssembly interfaces, hosted natively on Azure Static Web Apps alongside high-performance mobile clients.
 > Inspect /capabilities
 
-// THE_ARCHITECTURAL_ADVANTAGE
+// THE_CORPORATE_ADVANTAGE
 Uncompromising precision. Zero agency bloat.
 
-Enterprise software demands direct expertise. Operating as a specialized, director-led consultancy, BILLENNIUM LIMITED provides clients with unfiltered access to senior-level architectural design and execution. No account managers. No hand-offs. Just pure, scalable code.
+Enterprise software demands specialized expertise. Operating as a dedicated engineering partner, BILLENNIUM LIMITED provides clients with unfiltered access to elite architectural design and execution. No disjointed account management. No compromises. Just scalable, robust environments.
 
-> Query /the-architect
+> Query /profile
 
 // CONNECTION_PROTOCOLS
 Ready to scale your systems? Open a secure channel.
