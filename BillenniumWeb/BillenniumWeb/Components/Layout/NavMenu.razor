@@ -3,13 +3,15 @@
 <!-- Navigation with Integrated Logo & CSS-Only Mobile Menu -->
 <nav>
     <div class="nav-logo-container">
-        <div class="nav-logo-icon"></div>
-        <!-- Ensure you keep your specific typewriter ID here if you want that effect -->
-        <NavLink href="" Match="NavLinkMatch.All" class="logo monospace">
-            <span id="typewriter-nav"></span>
-            <span class="cursor-nav"></span>
+       <NavLink href="" Match="NavLinkMatch.All" class="logo monospace active" aria-current="page" style="display: flex; align-items: center; gap: 15px;">
+            <div class="nav-logo-icon"></div>
+            <div style="display: flex; align-items: center; font-weight: 700; letter-spacing: 2px;">
+                <span id="typewriter-nav">BILLENNIUM</span>
+                <span class="cursor-nav"></span>
+            </div>
         </NavLink>
     </div>
+   
 
     <!-- CSS-Only Mobile Menu Checkbox Hack -->
     <input class="menu-btn" type="checkbox" id="menu-btn" />
